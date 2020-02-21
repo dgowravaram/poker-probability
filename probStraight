@@ -1,0 +1,30 @@
+
+num_trials = 10**5
+
+def isStraight(hand): 
+    denomHand = [denom(x) for x in hand]
+    for i in range(5):
+        if denomHand[i]=='A':
+            denomHand[i] = '1'
+        elif denomHand[i]=='J':
+            denomHand[i] = '11'
+        elif denomHand[i]=='Q':
+            denomHand[i] = '12'
+        elif denomHand[i]=='K':
+            denomHand[i] = '13'
+        i+=1
+    intDenomHand = [int(denomHand[x]) for x in range(5)]
+    sortedDenomHand = np.sort(intDenomHand)
+    
+    for i in range(4):
+        if sortedDenomHand[i]+1!=sortedDenomHand[i+1]:
+            return False
+        i+=1
+    return True
+
+    
+outcomes = [isStraight(dealHand()) for x in range(num_trials10)]
+newOutcomes = Counter(outcomes)
+probStraight = newOutcomes[True]/len(outcomes)
+print(probStraight)    
+    
