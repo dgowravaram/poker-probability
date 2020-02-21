@@ -1,0 +1,16 @@
+
+num_trials9 = 10**5
+
+def isFlush(hand):               
+    first = suit(hand[0])
+    for x in range(1,5):
+        if suit(hand[x])!=first:
+            return False
+    #print("here")
+    return True
+
+
+outcomes = [isFlush(dealHand()) for x in range(num_trials9)]
+newOutcomes = Counter(outcomes)
+probFlush = newOutcomes[True]/len(outcomes)
+print("Probability of a flush in Poker: ", probFlush)
