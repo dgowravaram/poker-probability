@@ -1,0 +1,6 @@
+
+
+#deal a random hand (auxiliary function)
+
+def dealHand(withReplacement = False,size = 5):
+    return np.random.choice(Deck,size,withReplacement)                   # chooses a list of size elements  

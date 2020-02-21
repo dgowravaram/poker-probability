@@ -1,9 +1,9 @@
 
 num_trials = 10**5
 
-def isStraight(hand): 
-    denomHand = [denom(x) for x in hand]
-    for i in range(5):
+def isStraight(hand):                       
+    denomHand = [denom(x) for x in hand]    # create a list with denominations only
+    for i in range(5):                      # convert face cards to numbers
         if denomHand[i]=='A':
             denomHand[i] = '1'
         elif denomHand[i]=='J':
@@ -13,10 +13,10 @@ def isStraight(hand):
         elif denomHand[i]=='K':
             denomHand[i] = '13'
         i+=1
-    intDenomHand = [int(denomHand[x]) for x in range(5)]
-    sortedDenomHand = np.sort(intDenomHand)
+    intDenomHand = [int(denomHand[x]) for x in range(5)]        #convert denominations to ints from strings
+    sortedDenomHand = np.sort(intDenomHand)                     #sort integer denominations
     
-    for i in range(4):
+    for i in range(4):                                          
         if sortedDenomHand[i]+1!=sortedDenomHand[i+1]:
             return False
         i+=1

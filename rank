@@ -1,0 +1,4 @@
+
+
+def rank(c):  
+    return (np.where(Denominations==denom(c))[0][0] )

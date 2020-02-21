@@ -1,0 +1,4 @@
+
+
+def denom(c):
+    return c[0:-1]

@@ -1,0 +1,4 @@
+
+
+def suit(c):
+    return c[-1]
