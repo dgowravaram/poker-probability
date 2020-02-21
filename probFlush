@@ -1,16 +1,17 @@
 
-num_trials9 = 10**5
 
-def isFlush(hand):               
-    first = suit(hand[0])
-    for x in range(1,5):
-        if suit(hand[x])!=first:
+# approach = check if ranks are the same - then it's a flush
+num_trials = 10**5
+
+def isFlush(hand):  			#hand = list of 5 cards w/ a denomination + rank. e.g. '5H' or five of hearts             
+    first = suit(hand[0])				# consider the first card
+    for x in range(1,5):				# for remaining 4 cards:
+        if suit(hand[x])!=first:		# if the suit/rank isn't the same, return false
             return False
-    #print("here")
-    return True
+    return True							
 
 
-outcomes = [isFlush(dealHand()) for x in range(num_trials9)]
-newOutcomes = Counter(outcomes)
-probFlush = newOutcomes[True]/len(outcomes)
+outcomes = [isFlush(dealHand()) for x in range(num_trials)]	# consider randomization for some number of trials
+newOutcomes = Counter(outcomes)								# count num times True and False are returned
+probFlush = newOutcomes[True]/len(outcomes)					# compute probability based on trials
 print("Probability of a flush in Poker: ", probFlush)
