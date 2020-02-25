@@ -1,0 +1,10 @@
+def isThreeOfAKind(hand):
+    if(has_rank_signature(hand, [1, 1, 3])):
+        return True
+    else:
+        return False
+
+threeKindOutcomes = [isThreeOfAKind(dealHand()) for x in range(num_trials12)]
+newThreeKindOutcomes = Counter(threeKindOutcomes)
+probThreeKind = newThreeKindOutcomes[True]/len(threeKindOutcomes)
+print(probThreeKind)

@@ -1,0 +1,10 @@
+def isFourKind(hand):
+    if(has_rank_signature(hand, [1, 4])):
+        return True
+    else:
+        return False
+
+fourKindOutcomes = [isFourKind(dealHand()) for x in range(num_trials12)]
+newFourKindOutcomes = Counter(fourKindOutcomes)
+probFourKind = newFourKindOutcomes[True]/len(fourKindOutcomes)
+print(probFourKind)

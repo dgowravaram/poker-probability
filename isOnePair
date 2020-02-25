@@ -1,0 +1,10 @@
+def isOnePair(hand):
+    if(has_rank_signature(hand, [1,1,1,2])):
+        return True
+    else:
+        return False
+    
+outcomes = [isOnePair(dealHand()) for x in range(num_trials12)]
+newOutcomes = Counter(outcomes)
+probOnePair= newOutcomes[True]/len(outcomes)
+print(probOnePair) 
